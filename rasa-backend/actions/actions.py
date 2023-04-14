@@ -25,3 +25,40 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+import datetime as dt 
+from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from api import prlist
+
+
+class ActionHelloWorld(Action):
+
+    def name(self) -> Text:
+        return "action_show_time"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text=f"{dt.datetime.now()}")
+
+        return []
+    
+class ActionPRList(Action):
+
+    def name(self) -> Text:
+        return "action_pr_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        prlists = prlist()
+        dispatcher.utter_template("utter_givepr")
+        dispatcher.utter_message(prlists)
+
+        return []
+

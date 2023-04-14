@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 
 rules:
 
@@ -11,3 +11,13 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Give list of PR when user asks for it
+  steps:
+  - intent: prrequest
+  - action: action_pr_list
+
+- rule: Give the time when uses asks for it
+  steps:
+  - intent: give_time
+  - action: action_show_time

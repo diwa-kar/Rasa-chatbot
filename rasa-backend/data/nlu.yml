@@ -1,4 +1,4 @@
-version: "3.0"
+version: "3.1"
 
 nlu:
 - intent: greet
@@ -89,3 +89,30 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    
+- intent: give_time
+  examples: |
+    - give me the time?
+    - what is the time now?
+    - time
+    - get me the time?
+    - what is the current time now?
+
+- intent: prrequest
+  examples: |
+    - PR
+    - pr
+    - give me PR
+    - give me pr
+    - give me Purchase Requisition
+    - give me purchase requisition
+    - Purchase Requisition
+    - purchase requisition
+    - list of PR
+    - list of pr
+    - list me Purchase Requisition
+    - list me purchase requisition
+    - Can you please provide me with my purchase requisition?
+    - May I have access to my purchase requisition records?
+    - Is there a way for me to view my purchase requisition?
+    - How do I access my purchase requisition?
