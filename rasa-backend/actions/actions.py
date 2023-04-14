@@ -31,9 +31,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from api import prlist
-
-
+from actions.api import prlist
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
@@ -57,8 +55,9 @@ class ActionPRList(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         prlists = prlist()
-        dispatcher.utter_template("utter_givepr")
-        dispatcher.utter_message(prlists)
+        # dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
+        message = f"The list of PR's are: {prlists}"
+        dispatcher.utter_message(text=message)
 
         return []
 

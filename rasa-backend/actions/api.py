@@ -1,13 +1,22 @@
 import requests
 import xmltodict, json
 
+url = 'http://172.26.0.121:8002/sap/opu/odata/sap/API_PURCHASEREQ_PROCESS_SRV/A_PurchaseRequisitionHeader'
+username = 'K1277'
+password = 'Kaar@1234'
+# Create a session and set the authorization header
+session = requests.Session()
+session.auth = (username, password)
+
 def prlist():
     api_address='http://172.26.0.121:8002/sap/opu/odata/sap/API_PURCHASEREQ_PROCESS_SRV/A_PurchaseRequisitionHeader'
     # city = input('Enter the City Name :')
     url = api_address
-    xml_data = requests.get(url)
-    obj = xmltodict.parse(xml_data)
-    js = json.dumps(obj)
+    xml_data = session.get(url)
+    obj = xml_data.content
+    objstr = str(obj, 'UTF-8')
+    obj2 = xmltodict.parse(objstr)
+    js = json.dumps(obj2)
     js_obj = json.loads(js)
     values = js_obj['feed']['entry']
     prnumber=[]
