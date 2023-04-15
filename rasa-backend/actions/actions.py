@@ -55,7 +55,7 @@ class ActionPRList(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         prlists = prlist()
-        # dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
+        #  dispatcher.utter_template("utter_givepr",tracker,temp=prlists)
         message = f"The list of PR's are: {prlists}"
         dispatcher.utter_message(text=message)
 
