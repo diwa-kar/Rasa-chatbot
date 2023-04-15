@@ -24,8 +24,8 @@ responses:
   - text: "Here is something to cheer you up:"
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_givepr:
-  - text: "Here your list of PR's:"
+  # utter_givepr:
+  # - text: "Here your list of PR's:{temp}"
 
   utter_did_that_help:
   - text: "Did that help you?"
